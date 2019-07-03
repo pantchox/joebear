@@ -22,17 +22,16 @@ Examples source available in the examples directory.
 ```js
 /* Joebear simple example */
 const Joebear = require('joebear');
-
 const myJobs = new Joebear(['A','B','C',100]);
 
-myJobs.on('err', function(error){
+myJobs.on('err', (error) => {
     console.log('Jobs Error: ', error);
 });
 
-myJobs.on('run', function(currentJob, counter){
+myJobs.on('run', (currentJob, counter) => {
     console.log('current job value: ', currentJob);
     console.log('current job index (counter) value: ', counter);
-    var randomBool = Math.random() >= 0.5;
+    const randomBool = Math.random() >= 0.5;
     if (!randomBool) {
         // simulate a failed job...
         console.log('Job', currentJob, 'failed!');
@@ -43,14 +42,14 @@ myJobs.on('run', function(currentJob, counter){
     myJobs.nextJob();
 });
 
-myJobs.on('finished', function(jobsSummary) {
+myJobs.on('finished', (jobsSummary) => {
     console.log('Joebear finished, summary:', jobsSummary);
 });
 
 // start Joebear
 myJobs.start();
-
 ```
+
 ### Cron
 A more complete example of a cron job that runs every 15 min which checks crypto coins values.
 

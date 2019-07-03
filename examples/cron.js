@@ -11,11 +11,11 @@ const coins = ['bitcoin', 'litecoin', 'ethereum'];
 
 const myJobs = new Joebear(coins);
 
-myJobs.on('err', function(error) {
+myJobs.on('err', (error) => {
     console.log('Jobs Error: ', error);
 });
 
-myJobs.on('run', function (currentJob, counter, orgJobsArray, resetMessage) {
+myJobs.on('run',  (currentJob, counter, orgJobsArray, resetMessage) => {
     const coin = currentJob;
 
     https.get(TICKER_API_URL + coin + '/', (res) => {
@@ -33,7 +33,7 @@ myJobs.on('run', function (currentJob, counter, orgJobsArray, resetMessage) {
                 console.log('Trying again in 1 minute');
             }
             
-            setTimeout(function () {
+            setTimeout( () => {
                 // reset the job and pass timeout data to implement backoff strategy
                 myJobs.resetJob({timeout: backoffTimeout});
             }, backoffTimeout * 1000);
@@ -57,12 +57,12 @@ myJobs.on('run', function (currentJob, counter, orgJobsArray, resetMessage) {
 });
 
 let restartTimeoutHandler = null;
-myJobs.on('finished', function(jobsSummary) {
+myJobs.on('finished', (jobsSummary) => {
     console.log('Joebear finished, summary:', jobsSummary);
     // if all jobs finihsed, start it again in 15 minutes, else it means a forced stop!
     if (jobsSummary.total === jobsSummary.dispatched && !restartTimeoutHandler) {
         const restartInMinutes = 1;
-        restartTimeoutHandler= setTimeout(function() {
+        restartTimeoutHandler= setTimeout(() => {
             myJobs.restart();
             restartTimeoutHandler = null;
         }, restartInMinutes * 60 * 1000); // simple seconds -> minutes
@@ -77,7 +77,7 @@ myJobs.on('finished', function(jobsSummary) {
 myJobs.start();
 
 // in case the process was forced to be stopped we handle this case
-process.on("SIGINT", function () {
+process.on("SIGINT",  () => {
     console.log('coin ticker info stopped');
     myJobs.stop();
 });
