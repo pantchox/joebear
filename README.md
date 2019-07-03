@@ -13,6 +13,7 @@ Joebear can
 * Give a cute summary when finished 🐻
 
 ## Usage
+Install `npm install --save joebear`
 Examples source available in the examples directory.
 
 ### Simple
