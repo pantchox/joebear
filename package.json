@@ -1,6 +1,6 @@
 {
   "name": "joebear",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": " Joebear is a cute small serial queue job manager",
   "main": "index.js",
   "directories": {
