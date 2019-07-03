@@ -14,6 +14,7 @@ Joebear can
 
 ## Usage
 Install `npm install --save joebear`
+
 Examples source available in the examples directory.
 
 ### Simple
