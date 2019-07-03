@@ -1,0 +1,30 @@
+{
+  "name": "joebear",
+  "version": "0.1.0",
+  "description": " Joebear is a cute small serial queue job manager",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pantchox/joebear.git"
+  },
+  "keywords": [
+    "cute",
+    "small",
+    "queue",
+    "job",
+    "manager",
+    "task"
+  ],
+  "author": "Arye Shalev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pantchox/joebear/issues"
+  },
+  "homepage": "https://github.com/pantchox/joebear#readme"
+}
