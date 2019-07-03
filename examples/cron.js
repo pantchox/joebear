@@ -61,7 +61,7 @@ myJobs.on('finished', (jobsSummary) => {
     console.log('Joebear finished, summary:', jobsSummary);
     // if all jobs finihsed, start it again in 15 minutes, else it means a forced stop!
     if (jobsSummary.total === jobsSummary.dispatched && !restartTimeoutHandler) {
-        const restartInMinutes = 1;
+        const restartInMinutes = 15;
         restartTimeoutHandler= setTimeout(() => {
             myJobs.restart();
             restartTimeoutHandler = null;
