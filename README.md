@@ -17,7 +17,7 @@ Install `npm install --save joebear`
 
 Examples source available in the examples directory.
 
-### Simple
+### Simple Example
 
 ```js
 /* Joebear simple example */
@@ -52,7 +52,9 @@ myJobs.start();
 
 ```
 ### Cron
-A more complete example for a simple crypto coins values in USD that runs every 15 minutes
+A more complete example of a cron job that runs every 15 min which checks crypto coins values.
+
+[example link](examples/cron.js)
 
 ## API
 ### **joebear(jobsArray)**
@@ -60,7 +62,8 @@ First argument must be array of elements.
 
 Returns: `EventEmitter`
 
-#### `jobsArray` Array of your elements where each define a job
+#### `jobsArray`
+Array of your elements where each define a job
 
 ### start()
 Start joebear
@@ -76,10 +79,14 @@ Main handler on current job
 #### callback function `(currentJob, counter, originalJobsArray, resetMessage)`
 The callback function is responsible to process the job
 
-#### `currentJob` is the current element from the `jobsArray`
-#### `counter` is the current progress, current job iteration
-#### `originalJobsArray` is the original `jobsArray` for reference if needed
-#### `resetMessage` in case of a job being reseted you can pass data along and get it from this argument
+#### `currentJob`
+Current element from the `jobsArray`
+#### `counter` 
+Current progress, current job iteration
+#### `originalJobsArray` 
+Original `jobsArray` for reference if needed
+#### `resetMessage` 
+In case of a job being reseted you can pass data along and get it from this argument
 
 ### on('err')
 Handler in case of error(s)
@@ -87,7 +94,8 @@ Handler in case of error(s)
 ### on('finished', jobsSummary)
 Handler when all jobs were processed **OR** `stop()` was called to force quit.
 
-#### `jobsSummary` is a returned object with these properties:
+#### `jobsSummary`
+Returned object with these properties:
 * `time`- total time in seconds since joebear `start()` executed
 * `total` - number of total tasks
 * `dispatch` - number of total tasks that successfully processed 
